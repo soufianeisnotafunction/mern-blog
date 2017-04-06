@@ -12,7 +12,9 @@ const port       = process.env.port || 8080;
 mongoose.connect('mongodb://admin:root@ds149030.mlab.com:49030/blog');
 mongoose.Promise = global.Promise; // mongoose Promise is deprecated
 
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+}
 app.use(express.static('build'));
 
 
