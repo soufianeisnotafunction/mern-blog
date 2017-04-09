@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const BlogPostSchema = new Schema({
   title: {
     type:String,
@@ -8,7 +9,7 @@ const BlogPostSchema = new Schema({
   },
   posted:{
     type:Date,
-    default:Date.now
+    default:Date.now()
   },
   body:{
     type:String,

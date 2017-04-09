@@ -1,15 +1,15 @@
-const Admin = require("../models/admin");
+const User = require("../models/user");
 
-const admin = {
+const user = {
     getAdmin(req, res, next) {
-        Admin.find((err, user) => {
+        User.find((err, user) => {
             res.json(user);
         })
         .catch(next);
     },
 
     add(req, res, next) {
-        Admin.create(req.body)
+        User.create(req.body)
         .then(user => {
             res.send(user);
         })
@@ -17,7 +17,7 @@ const admin = {
     },
 
     update(req, res, next) {
-        Admin.findByIdAndUpdate({
+        User.findByIdAndUpdate({
             _id: req.params.id
         }, req.body)
         .then(user => {
@@ -27,7 +27,7 @@ const admin = {
     },
 
     remove(req, res, next) {
-        Admin.findByIdAndRemove({
+        User.findByIdAndRemove({
             _id: req.params.id
         }, req.body)
         .then(user => {
@@ -37,4 +37,4 @@ const admin = {
     }
 };
 
-module.exports = admin;
+module.exports = user;
